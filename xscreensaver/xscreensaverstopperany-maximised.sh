@@ -10,7 +10,7 @@
 
 # Description: Restarts xscreensaver's idle countdown while 
 # full screen applications are running.  
-# Checks every 30 seconds to see if any windows are full screen
+# Checks every 30 seconds to see if any windows are maximised
 # if so then xscreensaver is told to restart its idle countdown.
 
 
@@ -30,8 +30,8 @@ checkFullscreen()
 
 	WIN_IDs=$(wmctrl -l | awk '$3 != "N/A" {print $1}')
 	for i in $WIN_IDs; do 
-        	isWinFullscreen=`DISPLAY=:0.${display} xprop -id "$i" | grep _NET_WM_STATE_FULLSCREEN`
-		if [[ "$isWinFullscreen" == *NET_WM_STATE_FULLSCREEN* ]];then
+        	isWinFullscreen=`DISPLAY=:0.${display} xprop -id "$i" | grep _NET_WM_STATE_MAXIMIZED_VERT`
+		if [[ "$isWinFullscreen" == *NET_WM_STATE_MAXIMIZED_VERT* ]];then
               		xscreensaver-command -deactivate
 	    	fi
 	done
