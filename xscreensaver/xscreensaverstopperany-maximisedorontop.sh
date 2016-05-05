@@ -1,5 +1,5 @@
 #!/bin/bash
-# xscreensaverstopper.sh
+# xscreensaverstopperany-maximisedorontop.sh
 
 # This script is licensed under GNU GPL version 2.0 or above
 
@@ -32,7 +32,7 @@ checkFullscreen()
 	for i in $WIN_IDs; do 
         	isWinMax=`DISPLAY=:0.${display} xprop -id "$i" | grep _NET_WM_STATE MAXIMIZED VERT`
         	isWinOnTop=`DISPLAY=:0.${display} xprop -id "$i" | grep _NET_WM_STATE_ABOVE`
-		if [[ "$isWinMax" == *NET_WM_STATE MAXIMIZED VERT* ] ||[ "$isWinOnTop" == *NET_WM_STATE_ABOVE* ]];then
+		if [ "$isWinMax" == *NET_WM_STATE MAXIMIZED VERT*] || ["$isWinOnTop" == *NET_WM_STATE_ABOVE* ];then
               		xscreensaver-command -deactivate
 	    	fi
 	done
