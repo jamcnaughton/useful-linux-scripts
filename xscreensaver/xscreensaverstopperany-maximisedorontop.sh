@@ -28,14 +28,16 @@ checkFullscreen()
     for display in $displays
     do
 
-	WIN_IDs=$(wmctrl -l | awk '$3 != "N/A" {print $1}')
-	for i in $WIN_IDs; do 
-        	isWinMax=`DISPLAY=:0.${display} xprop -id "$i" | grep _NET_WM_STATE MAXIMIZED VERT`
-        	isWinOnTop=`DISPLAY=:0.${display} xprop -id "$i" | grep _NET_WM_STATE_ABOVE`
-		if [ "$isWinMax" == *NET_WM_STATE MAXIMIZED VERT*] || ["$isWinOnTop" == *NET_WM_STATE_ABOVE* ];then
-              		xscreensaver-command -deactivate
-	    	fi
-	done
+		WIN_IDs=$(wmctrl -l | awk '$3 != "N/A" {print $1}')
+		for i in $WIN_IDs; 
+		do 
+			isWinMax=`DISPLAY=:0.${display} xprop -id "$i" | grep _NET_WM_STATE_MAXIMIZED_VERT`
+			isWinOnTop=`DISPLAY=:0.${display} xprop -id "$i" | grep _NET_WM_STATE_ABOVE`
+			isActivWinFullscreen=`DISPLAY=:0.${display} xprop -id "$i" | grep _NET_WM_STATE_FULLSCREEN`
+			if [[ "$isWinMax" == *NET_WM_STATE_MAXIMIZED_VERT* || "$isWinOnTop" == *NET_WM_STATE_ABOVE* || "$isActivWinFullscreen" == *NET_WM_STATE_FULLSCREEN* ]];then
+				xscreensaver-command -deactivate
+			fi
+		done
     done
 }
 

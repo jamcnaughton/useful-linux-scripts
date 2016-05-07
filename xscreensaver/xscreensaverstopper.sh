@@ -34,8 +34,8 @@ checkFullscreen()
         
         # Check if Active Window (the foremost window) is in fullscreen state
         isActivWinFullscreen=`DISPLAY=:0.${display} xprop -id $activ_win_id | grep _NET_WM_STATE_FULLSCREEN`
-            if [[ "$isActivWinFullscreen" == *NET_WM_STATE_FULLSCREEN* ]];then
-                xscreensaver-command -deactivate
+        if [[ "$isActivWinFullscreen" == *NET_WM_STATE_FULLSCREEN* ]];then
+        	xscreensaver-command -deactivate
 	    fi
     done
 }
