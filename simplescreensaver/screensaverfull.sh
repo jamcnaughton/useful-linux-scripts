@@ -33,11 +33,11 @@ fi
 
 IDLE_TIME=$(($delay*1000))
 
-cd $DIR
+cd "$DIR"
 while sleep $((1)); do
     idle=$(xprintidle)
     if [ $idle -ge $IDLE_TIME ]; then
-        feh -x -F -r -Y -Z -z -A slideshow -D 7 -d $DIR
+        feh -x -F -r -Y -Z -z -A slideshow -D 7 -d "$DIR"
     fi
 done
 
