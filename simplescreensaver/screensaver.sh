@@ -39,7 +39,7 @@ checkFullscreen()
         # Check if Active Window (the foremost window) is in fullscreen state
         isActivWinFullscreen=`DISPLAY=:0.${display} xprop -id $activ_win_id | grep _NET_WM_STATE_FULLSCREEN`
             if [[ "$isActivWinFullscreen" != *NET_WM_STATE_FULLSCREEN* ]];then
-                feh -x -F -r -Y -Z -z -A slideshow -D 7 -d $DIR
+                feh -x -F -r -Y -Z -z -A slideshow -D 7 -d "$DIR"
 	    fi
     done
 }
@@ -57,7 +57,7 @@ fi
 
 IDLE_TIME=$(($delay*1000))
 
-cd $DIR
+cd "$DIR"
 while sleep $((1)); do
     idle=$(xprintidle)
     if [ $idle -ge $IDLE_TIME ]; then
