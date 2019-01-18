@@ -1,0 +1,92 @@
+[Toplevel bottom]
+orientation=left
+expand=true
+size=52
+
+[Toplevel toplevel-0]
+orientation=bottom
+expand=true
+size=52
+
+[Object matemenuapplet]
+locked=true
+position=10
+panel-right-stick=false
+toplevel-id=bottom
+applet-iid=MateMenuAppletFactory::MateMenuApplet
+object-type=applet
+
+[Object launcher]
+locked=true
+position=20
+launcher-location=/usr/share/applications/firefox.desktop
+panel-right-stick=false
+toplevel-id=bottom
+object-type=launcher
+menu-path=applications:/
+
+[Object launcher]
+locked=true
+position=30
+launcher-location=/usr/share/applications/thunderbird.desktop
+panel-right-stick=false
+toplevel-id=bottom
+object-type=launcher
+menu-path=applications:/
+
+[Object indicatorappletcomplete]
+locked=true
+position=881
+panel-right-stick=false
+toplevel-id=bottom
+applet-iid=IndicatorAppletCompleteFactory::IndicatorAppletComplete
+object-type=applet
+
+[Object clockapplet]
+locked=true
+position=998
+panel-right-stick=false
+toplevel-id=bottom
+applet-iid=ClockAppletFactory::ClockApplet
+object-type=applet
+
+[Object dockapplet]
+locked=true
+position=57
+panel-right-stick=false
+toplevel-id=bottom
+applet-iid=DockAppletFactory::DockApplet
+object-type=applet
+
+[Object matemenuapplet]
+locked=false
+position=20
+panel-right-stick=false
+toplevel-id=toplevel-0
+applet-iid=MateMenuAppletFactory::MateMenuApplet
+object-type=applet
+
+[Object dockapplet]
+locked=true
+position=71
+panel-right-stick=false
+toplevel-id=toplevel-0
+applet-iid=DockAppletFactory::DockApplet
+object-type=applet
+
+[Object clockapplet]
+locked=true
+position=1823
+panel-right-stick=false
+toplevel-id=toplevel-0
+applet-iid=ClockAppletFactory::ClockApplet
+object-type=applet
+
+[Object indicatorapplet]
+locked=false
+position=1697
+panel-right-stick=false
+toplevel-id=toplevel-0
+applet-iid=IndicatorAppletFactory::IndicatorApplet
+object-type=applet
+
